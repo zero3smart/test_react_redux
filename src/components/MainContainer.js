@@ -3,10 +3,9 @@ import MarketsList from './MarketsList';
 import { connect } from 'react-redux';
 import { fetchMarkets } from '../actions/marketsActions';
 import classnames from 'classnames';
+import '../assets/stylesheets/components/MainContainer.scss';
 
-import '../assets/stylesheets/components/BookingEnginee.scss';
-
-class BookingEnginee extends React.Component {
+class Reservations extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,8 +29,10 @@ class BookingEnginee extends React.Component {
     );
 
     const marketsList = (
-      <div>
-        <h1>Markets List</h1>
+      <div className="markets-list__container">
+        <div className="markets-list__title">
+          <h1>{this.props.title}</h1>
+        </div>
         <MarketsList markets={this.props.markets} />
       </div>
     );
@@ -44,9 +45,10 @@ class BookingEnginee extends React.Component {
   }
 }
 
-BookingEnginee.propTypes = {
+Reservations.propTypes = {
   markets: React.PropTypes.array.isRequired,
-  fetchMarkets: React.PropTypes.func.isRequired
+  fetchMarkets: React.PropTypes.func.isRequired,
+  title: React.PropTypes.string.isRequired
 }
 
 function mapStateToProps(state) {
@@ -55,4 +57,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchMarkets })(BookingEnginee);
+export default connect(mapStateToProps, { fetchMarkets })(Reservations);

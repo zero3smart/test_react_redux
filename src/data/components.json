@@ -1,0 +1,16 @@
+{
+  "components": [
+    {
+      "id": 1,
+      "name": "Reservations"
+    },
+    {
+      "id": 2,
+      "name": "Booking Enginee"
+    },
+    {
+      "id": 3,
+      "name": "Rates"
+    }
+  ]
+}

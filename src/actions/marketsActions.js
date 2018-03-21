@@ -1,4 +1,4 @@
-import { SET_MARKETS, SET_COMPANIES, SET_STATES } from './types';
+import { SET_MARKETS, SET_COMPANIES, SET_STATES, SET_COMPONENTS } from './types';
 import axios from 'axios';
 
 export function setMarkets(markets) {
@@ -19,6 +19,13 @@ export function setStates(states) {
   return {
     type: SET_STATES,
     states
+  };
+}
+
+export function setComponents(payload) {
+  return {
+    type: SET_COMPONENTS,
+    payload
   };
 }
 
@@ -73,5 +80,22 @@ export function fetchStates() {
     }, err => {
 
     });
+  }
+}
+
+export function fetchComponents() {
+  return dispatch => {
+    return fetch("components.json")
+      .then(response => {
+        if (response.status !== 200) {
+          console.log(`There was a problem: ${response.status}`)
+          return;
+        }
+        response.json().then(data => {
+          dispatch(setComponents(data.components));
+        });
+      }, err => {
+
+      });
   }
 }

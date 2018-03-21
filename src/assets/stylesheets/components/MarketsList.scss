@@ -1,0 +1,6 @@
+.card-wrapper {
+  -webkit-flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
+  display: 'flex';
+  overflow-x: 'scroll';
+}

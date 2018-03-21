@@ -1,5 +1,6 @@
 import React from 'react';
 import MarketCard from './MarketCard';
+import '../assets/stylesheets/components/MarketsList.scss';
 
 export default function MarketsList({ markets }) {
   const emptyMessage = (
@@ -7,7 +8,7 @@ export default function MarketsList({ markets }) {
   );
 
   const marketsList = (
-    <div className="ui four cards">
+    <div className="ui four cards card-wrapper">
       { markets.map(market => <MarketCard market={market} key={market.id} />) }
     </div>
   );
